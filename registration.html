@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+        }
+
+        form {
+            width: 350px;
+            margin: 50px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<form onsubmit="register(event)">
+    <h2>Registration Form</h2>
+
+    <input type="text" placeholder="Full Name" required>
+
+    <input type="email" placeholder="Email" required>
+
+    <input type="password" id="pass" placeholder="Password" required>
+
+    <input type="password" id="confirm" placeholder="Confirm Password" required>
+
+    <button type="submit">Register</button>
+
+    <p id="msg"></p>
+</form>
+
+<script>
+function register(event) {
+    event.preventDefault();
+
+    let pass = document.getElementById("pass").value;
+    let confirm = document.getElementById("confirm").value;
+    let msg = document.getElementById("msg");
+
+    if (pass === confirm) {
+        msg.innerHTML = "Registration Successful!";
+        msg.style.color = "green";
+    } else {
+        msg.innerHTML = "Passwords do not match!";
+        msg.style.color = "red";
+    }
+}
+</script>
+
+</body>
+</html>
